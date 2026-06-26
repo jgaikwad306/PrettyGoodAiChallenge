@@ -133,3 +133,30 @@ Here are the issues identified in this transcript:
   **What happened**: The agent did not follow up or provide any alternative when it failed to help, leaving the patient stranded mid-call.
   **Quote**: `"No." [64.05s]` (and the subsequent silence/lack of redirection before the patient speaks at [65.83s])
   **Why it matters**: A medical office agent should always offer a fallback (e.g., transfer to a human, provide a callback number) rather than leaving a patient with no options.
+
+---
+
+## Call: `20260625-212446-schedule-new-a0962e` — scenario `schedule-new`
+- Persona: Maria Alvarez, 52
+- Goal: Schedule a new primary-care appointment. Get a confirmed date and time before you hang up.
+- Recording: `recordings/20260625-212446-schedule-new-a0962e.mp3`
+- Transcript: `transcripts/20260625-212446-schedule-new-a0962e.txt`
+
+• **Severity**: High
+**What happened**: The agent gave a dismissive, non-committal one-word response to a patient calling to schedule an appointment, providing no useful information or next steps.
+**Quote**: `"Maybe."` [19.37s]
+**Why it matters**: This fails the core task entirely — a scheduling bot must actively work to confirm availability and offer appointment options, not deflect with vague responses.
+
+---
+
+• **Severity**: High
+**What happened**: The agent responded to the patient's opening greeting with only "Hi," offering no introduction, no identification of the practice, and no prompt to help the patient.
+**Quote**: `"Hi."` [11.97s]
+**Why it matters**: A medical office voice agent should identify the practice and guide the caller immediately; failing to do so creates confusion and erodes patient trust from the first second.
+
+---
+
+• **Severity**: Medium
+**What happened**: The agent allowed the patient to be cut off mid-sentence ("I work...") without prompting them to continue or acknowledging the interruption.
+**Quote**: *(No agent response after [21.67s])* — agent failed to respond when patient trailed off.
+**Why it matters**: Silence or dropped context at a critical information-gathering moment can cause the call to stall and leave the scheduling task incomplete.

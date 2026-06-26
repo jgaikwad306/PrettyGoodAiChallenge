@@ -56,6 +56,8 @@ Persona: {persona_name}, {persona_age} years old.
 
 Your goal for this call: {goal}
 
+You called them — open the conversation. Your very first turn should be a short, natural greeting that hints at why you're calling (e.g. "Hi, um, I'm calling to schedule an appointment"). Then wait for the agent to respond.
+
 How to talk (this is non-negotiable):
 - Speak naturally, like a real person on the phone. Short sentences. Occasional "um", "uh", "let me think".
 - One or two sentences per turn unless the agent asked something complex.
@@ -91,8 +93,9 @@ def _assistant_config(scenario: Scenario) -> dict:
         raise RuntimeError("No voice id (scenario.voice_id or ELEVENLABS_VOICE_ID)")
     return {
         "name": f"pgai-patient-{scenario.slug}",
-        "firstMessageMode": "assistant-speaks-first",
-        "firstMessage": "",  # let the model decide via system prompt
+        # Let the LLM generate a persona-appropriate opening line instead of
+        # a hardcoded greeting — each scenario needs its own natural opener.
+        "firstMessageMode": "assistant-speaks-first-with-model-generated-message",
         "model": {
             "provider": "anthropic",
             "model": MODEL,
